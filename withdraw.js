@@ -2,6 +2,8 @@ function Withdraw() {
   const [status, setStatus] = React.useState('');
   const [balance, setBalance] = React.useState(100);
   const [transactionState, setTransactionState] = React.useState('');
+  const ctx = React.useContext(UserContext); 
+
 
   const validate = (field, label) => {
     if (!field.trim()) {
@@ -41,11 +43,19 @@ function Withdraw() {
 
   const handleSubmit = () => {
     if (validate(transactionState, 'Withdraw Amount')) {
-      const amountToWithdraw = Number(transactionState);
-      setBalance(balance - amountToWithdraw);
+      setBalance(balance - Number(transactionState));
       setTransactionState('');
+      handleBalance();
+
     }
   };
+
+  const handleBalance = () => {
+    const newBalance = balance - Number(transactionState);
+    setBalance(newBalance);
+    ctx.users[0].balance = newBalance;
+  };
+
 
   return (
     <Card
