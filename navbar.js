@@ -12,6 +12,9 @@ function NavBar(){
             <a className="nav-link" href="#/CreateAccount/" title="Create a new account.">Create Account</a>
           </li>
           <li className="nav-item">
+            <a className="nav-link" href="#/Login/" title="Login to your account.">Login</a>
+          </li>
+          <li className="nav-item">
             <a className="nav-link" href="#/deposit/" title="Make a deposit.">Deposit</a>
           </li>
           <li className="nav-item">
