@@ -23,15 +23,14 @@ git clone https://github.com/jmmount/bad-bank-app.git
 
 2. Navigate to the project directory and open the `index.html` file in your web browser.
 
-3. Create an account or log in to an existing account to start using the banking functionalities.
+
 
 ## Future Work
 
 In the future I would love to do the following:
-- link the balance variable across components
 - Customize the Bootstrap styles
-- Add a login
-- Connect the data to a backend to keep traack of the user and data
+- Add login and current user components
+- Connect the data to a backend to keep track of the user and data
 
 ## License
 
