@@ -1,9 +1,9 @@
 function Deposit() {
   const [status, setStatus] = React.useState("");
-  const [balance, setBalance] = React.useState(100);
   const [transactionState, setTransactionState] = React.useState("");
   const ctx = React.useContext(UserContext); 
 
+  const [balance, setBalance] = React.useState(ctx.users[0].balance);
   const validate = (field, label) => {
     if (!field.trim()) {
       setStatus("Error: " + label);
@@ -36,18 +36,19 @@ function Deposit() {
 
   const handleSubmit = () => {
     if (validate(transactionState, "Deposit Amount")) {
-      setBalance(balance + Number(transactionState));
+      const newBalance = balance + Number(transactionState);
       setTransactionState("");
-      handleBalance();
+      handleBalance(newBalance);
       
      
     }
   };
 
-  const handleBalance = () => {
-    const newBalance = balance + Number(transactionState);
-    setBalance(newBalance);
+  const handleBalance = (newBalance) => {
     ctx.users[0].balance = newBalance;
+    setBalance(newBalance);
+    setStatus("Your deposit is successful!");
+    setTimeout(() => setStatus(""), 5000);
   };
 
   
